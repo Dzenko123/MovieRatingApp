@@ -4,7 +4,7 @@ MovieRatingApp je jednostavan sistem za ocjenjivanje filmova i TV serija, razvij
 
 Svaka stavka (film ili TV serija) sadrži sljedeće informacije:
 
-\- Slika (cover image)
+\- Slika
 
 \- Naslov
 
