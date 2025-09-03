@@ -14,6 +14,9 @@ Svaka stavka (film ili TV serija) sadrži sljedeće informacije:
 
 \- Glumce (najmanje dva)
 
+![image alt](https://github.com/Dzenko123/MovieRatingApp/blob/1563cda2602e82fc60079a3253e825f5661e0a74/assets/movies.png)
+
+![image alt](https://github.com/Dzenko123/MovieRatingApp/blob/1563cda2602e82fc60079a3253e825f5661e0a74/assets/series.png)
 ---
 
 \## **Funkcionalnosti**
@@ -44,7 +47,9 @@ Svaka stavka (film ili TV serija) sadrži sljedeće informacije:
 
 \- \*\*Prikaz prosječne ocjene:\*\* Svaki film ili serija prikazuje svoju prosječnu ocjenu.
 
+![image alt](https://github.com/Dzenko123/MovieRatingApp/blob/1563cda2602e82fc60079a3253e825f5661e0a74/assets/5_stars.png)
 
+![image alt](https://github.com/Dzenko123/MovieRatingApp/blob/1563cda2602e82fc60079a3253e825f5661e0a74/assets/older_than_20_years.png)
 
 \### *Backend*
 
