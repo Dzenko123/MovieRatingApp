@@ -19,6 +19,7 @@ Svaka stavka (film ili TV serija) sadrži sljedeće informacije:
 ![image alt](https://github.com/Dzenko123/MovieRatingApp/blob/1563cda2602e82fc60079a3253e825f5661e0a74/assets/movies.png)
 
 ![image alt](https://github.com/Dzenko123/MovieRatingApp/blob/1563cda2602e82fc60079a3253e825f5661e0a74/assets/series.png)
+
 ---
 
 \## **Funkcionalnosti**
