@@ -4,15 +4,17 @@ MovieRatingApp je jednostavan sistem za ocjenjivanje filmova i TV serija, razvij
 
 Svaka stavka (film ili TV serija) sadrži sljedeće informacije:
 
+\- Slika (cover image)
+
 \- Naslov
 
-\- Slika (cover image)
+\- Godina izlaska
 
 \- Kratki opis
 
-\- Datum izlaska
-
 \- Glumce (najmanje dva)
+
+\- Prosječnu ocjenu
 
 ![image alt](https://github.com/Dzenko123/MovieRatingApp/blob/1563cda2602e82fc60079a3253e825f5661e0a74/assets/movies.png)
 
