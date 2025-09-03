@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  movierating-sql:
+    image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    container_name: movierating-sql
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Dz3n@ndZ3n@n!"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1401:1433"
+    volumes:
+      - movierating-sql-data:/var/opt/mssql
+    restart: unless-stopped
+
+  movierating-api:
+    build:
+      context: ./MovieRating
+      dockerfile: MovieRating/Dockerfile
+    container_name: movierating-api
+    depends_on:
+      - movierating-sql
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=movierating-sql,1433;Database=MovieRating;User Id=sa;Password=Dz3n@ndZ3n@n!;TrustServerCertificate=True;
+    ports:
+      - "5000:8080"
+      - "5001:8081"
+    restart: unless-stopped
+
+volumes:
+  movierating-sql-data:

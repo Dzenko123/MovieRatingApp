@@ -1,0 +1,79 @@
+<h2>🎬 Top 10 {{ activeTab === 'movies' ? 'Movies' : 'TV Shows' }}</h2>
+
+<div style="margin-bottom: 12px; text-align: center;">
+  <input type="text" placeholder="Search movies or TV shows..." [(ngModel)]="searchText"
+    (ngModelChange)="onSearchChange($event)" style="width: 300px; padding: 6px; font-size: 1rem;" />
+</div>
+<div class="toggle-buttons">
+  <button (click)="switchTab('movies')" [class.active]="activeTab === 'movies'">Movies</button>
+  <button (click)="switchTab('tvshows')" [class.active]="activeTab === 'tvshows'">TV Shows</button>
+</div>
+
+<div class="movies-grid" *ngIf="activeTab === 'movies'">
+  <div class="movie-card" *ngFor="let movie of displayedMovies">
+    <img *ngIf="movie.coverImageUrl" [src]="'data:image/png;base64,' + movie.coverImageUrl" [alt]="movie.title"
+      class="movie-cover" />
+    <h3 class="movie-title">
+      {{ movie.title }} ({{ getYear(movie.releaseDate) }})
+    </h3>
+    <p class="movie-description">{{ movie.description }}</p>
+<p class="movie-actors" style="text-align: center;">
+  <strong>Actors:</strong>
+  <span *ngFor="let actor of movie.movieActors; let last = last">
+    {{ actor.actor.name }}<span *ngIf="!last">, </span>
+  </span>
+</p>
+
+
+    <p class="movie-rating">
+      Average Rating: {{ getAverageRating(movie.ratings)}} ⭐
+    </p>
+    <p style="margin: 4px 0;">Rate this Movie:</p>
+    <div class="stars">
+
+      <span *ngFor="let star of [1,2,3,4,5]" (click)="rate('movies', movie.movieId, star)"
+        (mouseenter)="hoverRating['movies-' + movie.movieId] = star"
+        (mouseleave)="hoverRating['movies-' + movie.movieId] = 0" [ngClass]="{
+      'selected-star': star <= (hoverRating['movies-' + movie.movieId] || getAverageRating(movie.ratings))
+    }" class="star">★</span>
+    </div>
+  </div>
+</div>
+
+<div class="movies-grid" *ngIf="activeTab === 'tvshows'">
+  <div class="movie-card" *ngFor="let show of displayedTvshows">
+    <img *ngIf="show.coverImageUrl" [src]="'data:image/png;base64,' + show.coverImageUrl" [alt]="show.title"
+      class="movie-cover" />
+    <h3 class="movie-title">
+      {{ show.title }} ({{ getYear(show.releaseDate) }})
+    </h3>
+    <p class="movie-description">{{ show.description }}</p>
+<p class="movie-actors" style="text-align: center;">
+  <strong>Actors:</strong>
+  <span *ngFor="let actor of show.tvShowActors; let last = last">
+    {{ actor.actor.name }}<span *ngIf="!last">, </span>
+  </span>
+</p>
+
+
+    <p class="movie-rating">
+      Average Rating: {{ getAverageRating(show.ratings)}} ⭐
+    </p>
+    <p style="margin: 4px 0;">Rate this TV Show:</p>
+    <div class="stars">
+
+      <span *ngFor="let star of [1,2,3,4,5]" (click)="rate('tvshows', show.tvShowId, star)"
+        (mouseenter)="hoverRating['tvshows-' + show.tvShowId] = star"
+        (mouseleave)="hoverRating['tvshows-' + show.tvShowId] = 0" [ngClass]="{
+      'selected-star': star <= (hoverRating['tvshows-' + show.tvShowId] || getAverageRating(show.ratings))
+    }" class="star">★</span>
+    </div>
+
+  </div>
+</div>
+<div style="text-align: center; margin: 20px;">
+  <button (click)="loadMore()" *ngIf="(activeTab === 'movies' && displayedMovies.length < totalMovieCount) ||
+           (activeTab === 'tvshows' && displayedTvshows.length < totalTvShowCount)">
+    Load More
+  </button>
+</div>
