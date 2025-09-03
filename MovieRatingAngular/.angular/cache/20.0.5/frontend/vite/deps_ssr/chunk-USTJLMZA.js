@@ -1,3 +1,4 @@
+import { createRequire } from 'module';const require = createRequire(import.meta.url);
 import {
   CommonModule,
   DomAdapter,
@@ -5,14 +6,14 @@ import {
   getDOM,
   isPlatformServer,
   setRootDomAdapter
-} from "./chunk-PQXYJ6AB.js";
+} from "./chunk-G5PCG57Y.js";
 import {
   withHttpTransferCache
-} from "./chunk-45BAP7XX.js";
+} from "./chunk-BTAGJZ4X.js";
 import {
   XhrFactory,
   parseCookieValue
-} from "./chunk-5KK3G4LL.js";
+} from "./chunk-WQDHX2CH.js";
 import {
   APP_ID,
   ApplicationModule,
@@ -72,10 +73,11 @@ import {
   ɵɵdefineInjector,
   ɵɵdefineNgModule,
   ɵɵinject
-} from "./chunk-M5D7KSMP.js";
+} from "./chunk-LL7WMOMB.js";
 import {
+  __spreadProps,
   __spreadValues
-} from "./chunk-SESUV4G6.js";
+} from "./chunk-6DU2HRTW.js";
 
 // node_modules/@angular/platform-browser/fesm2022/dom_renderer.mjs
 var EVENT_MANAGER_PLUGINS = new InjectionToken(ngDevMode ? "EventManagerPlugins" : "");
@@ -416,14 +418,14 @@ var DomRendererFactory2 = class _DomRendererFactory2 {
     this.ngZone = ngZone;
     this.nonce = nonce;
     this.tracingService = tracingService;
-    this.platformIsServer = false;
+    this.platformIsServer = true;
     this.defaultRenderer = new DefaultDomRenderer2(eventManager, doc, ngZone, this.platformIsServer, this.tracingService);
   }
   createRenderer(element, type) {
     if (!element || !type) {
       return this.defaultRenderer;
     }
-    if (false) {
+    if (type.encapsulation === ViewEncapsulation.ShadowDom) {
       type = __spreadProps(__spreadValues({}, type), {
         encapsulation: ViewEncapsulation.Emulated
       });
@@ -665,7 +667,7 @@ var DefaultDomRenderer2 = class {
       if (event === "__ngUnwrap__") {
         return eventHandler;
       }
-      const allowDefaultBehavior = false ? this.ngZone.runGuarded(() => eventHandler(event)) : eventHandler(event);
+      const allowDefaultBehavior = true ? this.ngZone.runGuarded(() => eventHandler(event)) : eventHandler(event);
       if (allowDefaultBehavior === false) {
         event.preventDefault();
       }
@@ -2014,4 +2016,4 @@ export {
    * License: MIT
    *)
 */
-//# sourceMappingURL=chunk-6LFSJX7Z.js.map
+//# sourceMappingURL=chunk-USTJLMZA.js.map
